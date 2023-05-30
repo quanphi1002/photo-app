@@ -7,8 +7,6 @@ import AddEditPage from "./features/photo/pages/addEdit";
 
 // Lazy load - Code splitting
 const Photo = React.lazy(() => import("./features/photo"));
-const Cart = React.lazy(() => import("./features/cart"));
-const Home = React.lazy(() => import("./features/home"));
 
 function App() {
   return (
@@ -17,11 +15,9 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/photos" element={<Photo />} />
+            <Route path="/" element={<Photo />} />
             <Route path="/photos/add" element={<AddEditPage />} />
             <Route path="/photos/:photoId" element={<AddEditPage />} />
-            <Route path="/carts" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

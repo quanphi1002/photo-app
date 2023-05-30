@@ -35,15 +35,14 @@ function PhotoForm(props) {
       <FormGroup>
         <Label for="categoryId">Photo</Label>
 
-        <div>
+        <div style={{ marginBottom: 10 }}>
           <Button type="button" outline color="primary">
             Random a photo
           </Button>
         </div>
-        <div>
+        <div style={{ width: "100%" }}>
           <img
-            width="200px"
-            height="200px"
+            style={{ width: "100%", height: "100%" }}
             src={Images.BLUE_BG}
             alt="colorful background"
           />
@@ -51,7 +50,7 @@ function PhotoForm(props) {
       </FormGroup>
 
       <FormGroup>
-        <Button color="primary">Add to album</Button>
+        <Button color="primary">Add To Album</Button>
       </FormGroup>
     </Form>
   );

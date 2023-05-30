@@ -11,7 +11,7 @@ function AddEditPage(props) {
   console.log("vo day222");
   return (
     <div className="photo-edit">
-      <Banner title="Pick your amazing photo 😎" />
+      <Banner title="😎 Pick your amazing photo 😎" />
 
       <div className="photo-edit__form">
         <PhotoForm
