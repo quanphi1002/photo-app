@@ -6,7 +6,6 @@ import PhotoForm from "features/photo/component/photoForm";
 AddEditPage.propTypes = {};
 
 function AddEditPage(props) {
-  console.log("vo day222");
   return (
     <div className="photo-edit">
       <Banner title="😎 Pick your amazing photo 😎" />
