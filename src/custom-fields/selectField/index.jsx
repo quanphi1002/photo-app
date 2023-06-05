@@ -26,10 +26,8 @@ function SelectField(props) {
   const selectedOption = options.find((option) => option.value === value);
   const { errors, touched } = form;
   const showErr = errors[name] && touched[name];
-  console.log({ showErr, name });
 
   const handleSelectOptionChange = (selectedOption) => {
-    console.log(selectedOption);
     const selectedValue = selectedOption
       ? selectedOption.value
       : selectedOption;
@@ -41,7 +39,6 @@ function SelectField(props) {
       },
     };
     field.onChange(changeEvent);
-    console.log(field, changeEvent);
   };
   return (
     <FormGroup>

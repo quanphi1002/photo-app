@@ -5,7 +5,6 @@ Home.propTypes = {};
 
 function Home(props) {
   const match = useResolvedPath("").pathname;
-  console.log(match);
 
   return <div>Home page</div>;
 }

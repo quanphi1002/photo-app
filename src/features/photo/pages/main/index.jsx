@@ -6,12 +6,17 @@ import Banner from "../../../../components/banner";
 import PHOTOS from "../../../../constants/mockData";
 import PhotoList from "../../component/photoList";
 import "./styles.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { removePhoto } from "features/photo/photoSlice";
 
 MainPage.propTypes = {};
 
 function MainPage(props) {
+  const photos = useSelector((state) => state.photoReducer);
+  const dispatch = useDispatch();
   const handleRemove = (photo) => {
-    console.log(photo);
+    const action = removePhoto(photo.id);
+    dispatch(action);
   };
 
   const handleEdit = (photo) => {
@@ -31,7 +36,7 @@ function MainPage(props) {
           </Link>
         </div>
         <PhotoList
-          photoList={PHOTOS}
+          photoList={photos}
           onPhotoEditClick={handleEdit}
           onPhotoRemoveClick={handleRemove}
         />

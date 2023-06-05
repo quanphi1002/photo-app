@@ -5,7 +5,6 @@ Cart.propTypes = {};
 
 function Cart(props) {
   const match = useResolvedPath("").pathname;
-  console.log(match);
 
   return <div>cart page</div>;
 }

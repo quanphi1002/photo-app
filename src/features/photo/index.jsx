@@ -7,7 +7,6 @@ import AddEditPage from "./pages/addEdit";
 Photo.propTypes = {};
 
 function Photo(props) {
-  console.log("vo day");
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
