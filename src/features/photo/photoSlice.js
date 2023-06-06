@@ -1,9 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import photos from "constants/mockData";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchphoto } from "./photoThunk";
 
 const photoSlice = createSlice({
   name: "photos",
-  initialState: photos,
+  initialState: {
+    photos: []
+  },
   reducers: {
     addPhoto(state, action) {
       state.push(action.payload);
@@ -19,6 +23,14 @@ const photoSlice = createSlice({
         state[index] = newPhoto;
       }
     },
+    
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchphoto.fulfilled, (state, action) => {
+        console.log(111111111,action.payload);
+        state.photos = action.payload
+      })
   },
 });
 const { actions, reducer } = photoSlice;
