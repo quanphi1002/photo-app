@@ -117,7 +117,7 @@ b7: nhập password (nhập password nó sẽ không hiện)
 b8: nhấn enter khi dòng (project: C:\Users\folder_name\Documents\photo-app2\build\)
 b9: thay đổi tên domain: name_domain.surge.sh sau đó nhấn enter
 b10: lấy tên domain ở bước 9 chạy thử lên web
-
+......
 
 
 -->
