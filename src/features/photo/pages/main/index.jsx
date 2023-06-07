@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container } from "reactstrap";
 import Images from "../../../../constants/images";
 import Banner from "../../../../components/banner";
@@ -14,13 +14,14 @@ MainPage.propTypes = {};
 function MainPage(props) {
   const photos = useSelector((state) => state.photoReducer);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleRemove = (photo) => {
     const action = removePhoto(photo.id);
     dispatch(action);
   };
 
   const handleEdit = (photo) => {
-    console.log(photo);
+    navigate(`/photos/${photo.id}`);
   };
 
   return (

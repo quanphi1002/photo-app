@@ -2,9 +2,9 @@ import React from "react";
 import "./styles.scss";
 import Banner from "components/banner";
 import PhotoForm from "features/photo/component/photoForm";
-import { addPhoto } from "features/photo/photoSlice";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { addPhoto, editPhoto } from "features/photo/photoSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 
 AddEditPage.propTypes = {};
 
@@ -12,10 +12,23 @@ function AddEditPage(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const photos = useSelector((state) => state.photoReducer);
+
+  const { photoId } = useParams();
+
+  const idAddMode = !photoId;
+
+  const photoEdit = photos.find((photo) => photo.id === +photoId);
+
   const handleSubmit = (values) => {
     setTimeout(() => {
-      const action = addPhoto(values);
-      dispatch(action);
+      if (idAddMode) {
+        const action = addPhoto(values);
+        dispatch(action);
+      } else {
+        const action = editPhoto(values);
+        dispatch(action);
+      }
       navigate("/");
     }, 2000);
   };
@@ -24,7 +37,11 @@ function AddEditPage(props) {
       <Banner title="😎 Pick your amazing photo 😎" />
 
       <div className="photo-edit__form">
-        <PhotoForm onSubmit={handleSubmit} />
+        <PhotoForm
+          idAddMode={idAddMode}
+          photoEdit={photoEdit}
+          onSubmit={handleSubmit}
+        />
       </div>
     </div>
   );
