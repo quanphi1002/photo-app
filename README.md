@@ -118,6 +118,6 @@ b8: nhấn enter khi dòng (project: C:\Users\folder_name\Documents\photo-app2\b
 b9: thay đổi tên domain: name_domain.surge.sh sau đó nhấn enter
 b10: lấy tên domain ở bước 9 chạy thử lên web
 ......
-
+tesst commit
 
 -->
