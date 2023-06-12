@@ -5,7 +5,9 @@
   overflow: hidden;
 
   & > img {
-    width: 100%;
+    // width: 100%;
+    width: 300px;
+    height: 250px;
     vertical-align: middle;
     transition: all 0.45s ease 0s;
   }

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect } from "react";
 import Select from "react-select";
 import { Button, FormGroup, Input, Label, Spinner } from "reactstrap";
 import Images from "../../../../constants/images";
@@ -19,15 +19,11 @@ PhotoForm.defaultProps = {
 };
 
 function PhotoForm(props) {
-  const { idAddMode, photoEdit, onSubmit } = props;
+  const { idAddMode, initialValues, onSubmit } = props;
+
   // npm i --save react-select
-  const initialValues = photoEdit
-    ? photoEdit
-    : {
-        title: "",
-        categoryId: null,
-        photo: "",
-      };
+  if (!initialValues) return null;
+
   const validationSchema = Yup.object({
     title: Yup.string().required("this field is required"),
     categoryId: Yup.number().required("this field is required"),

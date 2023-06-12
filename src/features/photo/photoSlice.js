@@ -1,26 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
-import photos from "constants/mockData";
+import { deletePhoto, getListPhoto } from "./photoThunk";
 
 const photoSlice = createSlice({
   name: "photos",
-  initialState: photos,
-  reducers: {
-    addPhoto(state, action) {
-      state.push(action.payload);
-    },
-    removePhoto(state, action) {
-      const removeId = action.payload;
-      return (state = state.filter((photo) => photo.id !== removeId));
-    },
-    editPhoto(state, action) {
-      const newPhoto = action.payload;
-      const index = state.findIndex((photo) => photo.id === newPhoto.id);
-      if (index >= 0) {
-        state[index] = newPhoto;
-      }
-    },
+  initialState: {
+    photos: [],
+    isLoading: false,
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getListPhoto.fulfilled, (state, action) => {
+        state.photos = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getListPhoto.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(getListPhoto.rejected, (state, action) => {
+        state.isLoading = false;
+      })
+      .addCase(deletePhoto.fulfilled, (state, action) => {
+        const removeId = action.payload;
+        state.photos = state.photos.filter((photo) => photo.id !== removeId);
+      });
   },
 });
 const { actions, reducer } = photoSlice;
-export const { addPhoto, removePhoto, editPhoto } = actions;
+export const {} = actions;
 export default reducer;
