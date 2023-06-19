@@ -27,5 +27,5 @@ const photoSlice = createSlice({
   },
 });
 const { actions, reducer } = photoSlice;
-export const {} = actions;
+export const { filterPhoto } = actions;
 export default reducer;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Container, Spinner } from "reactstrap";
+import { Button, Container, Spinner } from "reactstrap";
 import Images from "../../../../constants/images";
 import Banner from "../../../../components/banner";
 import PHOTOS from "../../../../constants/mockData";
@@ -29,6 +29,10 @@ function MainPage(props) {
     navigate(`/photos/${photo.id}`);
   };
 
+  const toPageAdd = (photo) => {
+    navigate(`/photos/add`);
+  };
+
   return (
     <div className="photo-main">
       <Banner
@@ -37,9 +41,9 @@ function MainPage(props) {
       />
       <Container className="text-center">
         <div className="box-link">
-          <Link className="link-add button" to="/photos/add">
+          <Button onClick={toPageAdd} color="info">
             Add New Photo
-          </Link>
+          </Button>
         </div>
         {isLoading ? (
           <Spinner />
