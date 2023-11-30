@@ -34,12 +34,6 @@ xây dựng một ứng dụng để sử dụng được redux trong react
     - ui lib: reactstrap
     - validate form: yup
 
-## học được gì
-
-    - tổ chức được folder, files trong thực tế
-    - sử dụng redux tốt hơn với redux toolkit
-    - thiết kế routing trong reactjs app.
-    - sử dụng một thư viện ui bên ngoài để làm ui
 
 `###########################`
 
